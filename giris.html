@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daxil Ol / Qeydiyyat - Nahid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #5c6bc0, #8e99f3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .input-box {
+      position: relative;
+      margin-bottom: 15px;
+    }
+    .input-box input {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .input-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #5c6bc0;
+      font-size: 1.2rem;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #5c6bc0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #3f51b5;
+    }
+    .switch {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+    .switch a {
+      color: #5c6bc0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .error {
+      color: red;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="form-container">
+    <h2>Daxil Ol</h2>
+    <div class="error" id="login-error"></div>
+    <div class="input-box">
+      <i class='bx bx-envelope'></i>
+      <input type="email" id="login-email" placeholder="Email">
+    </div>
+    <div class="input-box">
+      <i class='bx bx-lock-alt'></i>
+      <input type="password" id="login-password" placeholder="Şifrə">
+    </div>
+    <button onclick="goToLogin()">Daxil ol</button>
+    <div class="switch">
+      Hesabınız yoxdur? <a href="#" onclick="showSignup()">Qeydiyyat</a>
+    </div>
+  </div>
+
+  <script>
+    function goToLogin() {
+      const email = document.getElementById("login-email").value.trim();
+      const password = document.getElementById("login-password").value.trim();
+      const errorDiv = document.getElementById("login-error");
+
+      if (!email || !password) {
+        errorDiv.textContent = "Zəhmət olmasa email və şifrəni doldurun.";
+        return;
+      }
+
+      window.location.href = "index.html";
+    }
+
+    function goToSignup() {
+      const name = document.getElementById("signup-name").value.trim();
+      const email = document.getElementById("signup-email").value.trim();
+      const password = document.getElementById("signup-password").value.trim();
+      const errorDiv = document.getElementById("signup-error");
+
+      if (!name || !email || !password) {
+        errorDiv.textContent = "Zəhmət olmasa bütün sahələri doldurun.";
+        return;
+      }
+
+      window.location.href = "satissitesideneme.html";
+    }
+
+    function showSignup() {
+      document.getElementById("form-container").innerHTML = `
+        <h2>Qeydiyyat</h2>
+        <div class="error" id="signup-error"></div>
+        <div class="input-box">
+          <i class='bx bx-user'></i>
+          <input type="text" id="signup-name" placeholder="Ad Soyad">
+        </div>
+        <div class="input-box">
+          <i class='bx bx-envelope'></i>
+          <input type="email" id="signup-email" placeholder="Email">
+        </div>
+        <div class="input-box">
+          <i class='bx bx-lock-alt'></i>
+          <input type="password" id="signup-password" placeholder="Şifrə">
+        </div>
+        <button onclick="goToSignup()">Qeydiyyatdan Keç</button>
+        <div class="switch">
+          Artıq hesabınız var? <a href="#" onclick="showLogin()">Daxil ol</a>
+        </div>
+      `;
+    }
+
+    function showLogin() {
+      document.getElementById("form-container").innerHTML = `
+        <h2>Daxil Ol</h2>
+        <div class="error" id="login-error"></div>
+        <div class="input-box">
+          <i class='bx bx-envelope'></i>
+          <input type="email" id="login-email" placeholder="Email">
+        </div>
+        <div class="input-box">
+          <i class='bx bx-lock-alt'></i>
+          <input type="password" id="login-password" placeholder="Şifrə">
+        </div>
+        <button onclick="goToLogin()">Daxil ol</button>
+        <div class="switch">
+          Hesabınız yoxdur? <a href="#" onclick="showSignup()">Qeydiyyat</a>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

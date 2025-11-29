@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xidmət Platforması - Nahid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #5c6bc0;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .search-box {
+      margin: 20px auto;
+      max-width: 500px;
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+    }
+    .search-box button {
+      background: #5c6bc0;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+    .filters {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .filters button {
+      margin: 5px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+    }
+    .filters button:hover {
+      background: #e8eaf6;
+    }
+    .cards {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Butonları aşağıda yerləşdirmək üçün */
+      height: 100%; /* Eyni hündürlük üçün */
+      min-height: 300px; /* Minimum hündürlük əlavə et */
+    }
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      color: #5c6bc0;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      flex-grow: 1; /* Mətni genişləndirmək üçün */
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #fafafa;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+    .premium-button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #5c6bc0;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.1s;
+    }
+    .premium-button:hover {
+      background-color: #4a5e9c;
+    }
+    .premium-button:active {
+      transform: scale(0.95);
+      background-color: #4a5e9c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WebSale</div>
+    <nav>
+      <a href="satissitesideneme.html">Xidmətlər</a>
+      <a href="qiymetler.html">Qiymətlər</a>
+      <a href="haqqimizda.html">Haqqımızda</a>
+      <a href="elaqe.html">Əlaqə</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Bəyəndiyiniz hazır xidmət kateqoriyasını seçin</h1>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Bütün xidmətlərdə axtar...">
+      <button onclick="search()">Axtar</button>
+    </div>
+  </section>
+
+  <div class="filters">
+    <button>Hamısı</button>
+    <button>Sayt Qur</button>
+    <button>Kod Xətası Tap</button>
+    <button>Logo Dizaynı</button>
+  </div>
+
+  <section class="cards" id="cardsContainer">
+    <div class="card">
+      <h3>Premium Canlı Hava Proqnozu saytı</h3>
+      <img src="cnlihavadurumu.jpeg">
+      <h4>Sənin Gününü Planlaşdırmaq üçün Ən Etibarlı Yol!</h4>
+      <p>Canlı və dəqiq hava məlumatları təqdim edən sayt! İstənilən şəhər və ölkə üzrə real vaxtda hava, külək, rütubət, saat və tarix – hamısı bir yerdə!🔎 Axtar, öyrən, planla!</p>
+      <button class="premium-button">Elana Get</button>
+    </div>
+    <div class="card">
+      <h3>USB Type-C Təmiri</h3>
+      <img src="type-c.jpg">
+      <p>Type-C portları, müasir cihazların enerji və məlumat ötürməsində inqilab yaradır. Bizim təmir xidmətimiz, zədələnmiş Type-C portlarını bərpa edərək cihazlarınızın performansını artırır. Sürətli, etibarlı və keyfiyyətli təmir ilə cihazlarınızı yenidən işə salırıq! Gəlin, Type-C portunuzu bizə etibar edin!</p>
+      <button class="premium-button">Elana Get</button>
+    </div>
+    <div class="card">
+      <h3>Premium Math Master saytı</h3>
+      <img src="mathmstr.jpeg">
+      <p>Riyaziyyat hesablamaları üçün sayt, istifadəçilərə toplama, çıxma, vurma, bölmə və tənliklərin həlli kimi riyazi problemləri asanlıqla həll etməyə imkan tanıyır. İntuitiv interfeysi ilə riyaziyyat öyrənmək və tətbiq etmək üçün ideal bir resursdur. Nümunələrlə riyazi anlayışlarınızı dərinləşdirin!</p>
+      <button class="premium-button">Elana Get</button>
+    </div>
+    <div class="card">
+      <h3>JBL Go Təmiri</h3>
+      <img src="jblgo.jpg">
+      <p>JBL Go, portativ və kompakt bir Bluetooth səs sistemidir, lakin zamanla istifadə nəticəsində zədələnə və ya işləməyə bilər. JBL Go-nun təmiri, səs keyfiyyətini bərpa etmək və cihazın ömrünü uzatmaq üçün vacibdir. Təmir üçün bizə etibar edin! </p>
+      <button class="premium-button">Elana Get</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 WebSale — Bütün hüquqlar qorunur.
+  </footer>
+
+  <script>
+    function search() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'flex'; // Göstər
+        } else {
+          card.style.display = 'none'; // Gizlət
+        }
+      });
+    }
+  </script>
+</body>
+</html>
